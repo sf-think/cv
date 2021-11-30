@@ -79,7 +79,7 @@ let step = function () {
       n = n + 1;
       step();
     }
-  }, 0);
+  }, 50);
 };
 
 step();
