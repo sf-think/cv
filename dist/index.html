@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
     <title>Document</title>
     <style id="style">
 
@@ -13,14 +13,26 @@
 </head>
 
 <body>
-    <span id="demo"></span>
-    <div id="div1"></div>
+    <div id="html"></div>
+    <div class="div1Wrapper">
+        <div id="div1"></div>
+    </div>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #html {
+            /* 文本自动折行 */
+            word-break: break-all;
+        }
+
         #div1 {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%);
         }
 
         #div1::after {
@@ -31,6 +43,27 @@
         #div1::before {
             content: '';
             display: block;
+        }
+
+        @media (max-width: 500px) {
+            #html {
+                height: 50vh;
+                overflow: hidden;
+            }
+
+            .div1Wrapper {
+                height: 50vh;
+                display: flex;
+                align-items: center;
+            }
+
+            #div1 {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     
 </style>

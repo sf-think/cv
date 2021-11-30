@@ -1,11 +1,10 @@
-let html = document.querySelector("#demo");
+let html = document.querySelector("#html");
 let style = document.querySelector("#style");
 let string = `
 /* 先来一个 div */
 #div1 {
-  border: 1px solid red;
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
 }
 /* 画一个八卦图 
 ** 先画一个圆
@@ -21,8 +20,8 @@ let string = `
   content: '';
   display: block;
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -36,8 +35,8 @@ let string = `
   content: '';
   display: block;
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -49,7 +48,6 @@ let string = `
 
 /* 转起来 */
 #div1 {
-  transition: 1s all;
   animation: 3s linear infinite rotate;
 }
 @keyframes rotate{
@@ -68,9 +66,11 @@ let step = function() {
         if (string[n] === "\n") string2 += "<br>";
         else if (string[n] === " ") string2 += "&nbsp;";
         else string2 += string[n];
-        console.log(n);
         html.innerHTML = string2;
         style.innerHTML = string.substring(0, n);
+        window.scrollTo(0, 99999);
+        // 手机端下拉滚动条
+        html.scrollTo(0, 99999);
         if (n < string.length - 1) {
             n = n + 1;
             step();
